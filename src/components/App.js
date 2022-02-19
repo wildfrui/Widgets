@@ -1,11 +1,12 @@
 import React from "react";
 import Accordion from "./Accordion";
 import Wiki from "./Wiki";
+import Dropdown from "./Dropdown";
 
 const App = () => {
   return (
     <div>
-      <Wiki></Wiki>
+      <Dropdown></Dropdown>
     </div>
   );
 };
