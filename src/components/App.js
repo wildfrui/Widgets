@@ -1,10 +1,11 @@
 import React from "react";
 import Accordion from "./Accordion";
+import Wiki from "./Wiki";
 
 const App = () => {
   return (
     <div>
-      <Accordion></Accordion>
+      <Wiki></Wiki>
     </div>
   );
 };
