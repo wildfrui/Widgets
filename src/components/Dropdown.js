@@ -1,12 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 
-const options = [
-  { label: "Red color", value: "red" },
-  { label: "Blue color", value: "blue" },
-  { label: "Green color", value: "green" },
-];
-
-const Dropdown = () => {
+const Dropdown = ({ options, labelText, onSelect }) => {
   const [selected, setSelected] = useState(null);
   const [open, setOpen] = useState(false);
   const ref = useRef();
@@ -16,7 +10,6 @@ const Dropdown = () => {
       if (ref.current.contains(e.target)) {
         return;
       }
-
       setOpen(false);
     });
   });
@@ -29,6 +22,7 @@ const Dropdown = () => {
         onClick={(e) => {
           setSelected(index);
           console.log(index);
+          onSelect(index);
         }}
       >
         {option.label}
@@ -47,12 +41,12 @@ const Dropdown = () => {
     >
       <div className="field">
         <label htmlFor="" className="label">
-          Select a color
+          {labelText}
         </label>
         <div className="ui selection dropdown visible active">
           <i className="dropdown icon"></i>
           <div className="text">
-            {selected !== null ? options[selected].label : "Select a color"}
+            {selected !== null ? options[selected].label : labelText}
           </div>
           <div className={`menu ${opened} transition`}>{renderedOptions}</div>
         </div>
