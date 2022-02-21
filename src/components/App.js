@@ -3,6 +3,8 @@ import Accordion from "./Accordion";
 import Wiki from "./Wiki";
 import Dropdown from "./Dropdown";
 import Translate from "./Translate";
+import Route from "./Route";
+import Header from "./Header";
 
 const options = [
   { label: "Red color", value: "red" },
@@ -13,7 +15,19 @@ const options = [
 const App = () => {
   return (
     <div>
-      <Translate></Translate>
+      <Header></Header>
+      <Route path="/">
+        <Accordion></Accordion>
+      </Route>
+      <Route path="/wiki">
+        <Wiki></Wiki>
+      </Route>
+      <Route path="/dropdown">
+        <Dropdown options={options} labelText={"Choose a color"}></Dropdown>
+      </Route>
+      <Route path="/translate">
+        <Translate></Translate>
+      </Route>
     </div>
   );
 };
